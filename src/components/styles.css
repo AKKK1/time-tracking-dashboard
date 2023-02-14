@@ -1,0 +1,21 @@
+.category-1 {
+  background-color: var(--Soft-blue);
+  background-image: url(../images/icon-play.svg);
+}
+.category-2 {
+  background-color: var(--Light-red);
+  background-image: url(../images/icon-study.svg);
+}
+.category-3 {
+  background-color: var(--Lime-green);
+  background-image: url(../images/icon-exercise.svg);
+  font-weight: 500;
+}
+.category-4 {
+  background-color: var(--Violet);
+  background-image: url(../images/icon-social.svg);
+}
+.category-5 {
+  background-color: var(--Soft-orange);
+  background-image: url(../images/icon-self-care.svg);
+}
