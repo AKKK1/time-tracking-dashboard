@@ -8,6 +8,7 @@ import SocialImg from "../images/icon-social.svg";
 import Self from "../images/icon-self-care.svg";
 import FormJSON from "../data.json";
 import "./styles.css";
+import Jeremy from "./Jeremy";
 
 const TimeTracker = () => {
   const Data = FormJSON;
@@ -120,22 +121,8 @@ const TimeTracker = () => {
   return (
     <section>
       <Mtavari>
-        <Lurji>
-          <h1>asd</h1>
-        </Lurji>
+        <Jeremy />
         <Grid>
-          {/* <Work>
-            <WorkDiv>
-              <WorkHeaderDiv>
-                <WorkTitle>Work</WorkTitle>
-                <WorkBtn>...</WorkBtn>
-              </WorkHeaderDiv>
-              <WorkHours>{data[0].timeframes.monthly.current}Hrs</WorkHours>
-              <WorkSubtitle>
-                Last Week - {data[0].timeframes.monthly.previous}
-              </WorkSubtitle>
-            </WorkDiv>
-          </Work> */}
           {data?.map((item, index) => (
             <Work key={item.title} className={`category-${index}`}>
               <WorkDiv>
@@ -162,17 +149,7 @@ const Mtavari = styled.div`
   display: flex;
   gap: 20px;
 `;
-const Lurji = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: var(--Blue);
-  width: 300px;
-  padding: 30px;
-  height: 660px;
-  border-radius: 20px;
-`;
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -183,8 +160,8 @@ const Work = styled.div`
   width: 320px;
   height: 320px;
   background-color: #ff8a64;
-  border-radius: 20px;
   background-image: url(${WorkImg});
+  border-radius: 20px;
   background-repeat: no-repeat;
   background-position: top -5px right 15px;
 `;
@@ -206,6 +183,9 @@ const WorkDiv = styled.div`
   border-radius: 20px;
   padding: 25px;
   background-position: 0px 30px;
+  &:hover {
+    background-color: var(--Pale-blue);
+  }
 `;
 const WorkHeaderDiv = styled.div`
   display: flex;

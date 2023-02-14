@@ -1,21 +1,23 @@
 .category-1 {
-  background-color: var(--Soft-blue);
-  background-image: url(../images/icon-play.svg);
+  background-color: var(--Soft-blue) !important;
+  background-image: url(../images/icon-play.svg) !important;
 }
 .category-2 {
-  background-color: var(--Light-red);
-  background-image: url(../images/icon-study.svg);
+  background-color: var(--Light-red) !important;
+  background-image: url(../images/icon-study.svg) !important;
 }
 .category-3 {
-  background-color: var(--Lime-green);
-  background-image: url(../images/icon-exercise.svg);
-  font-weight: 500;
+  background-color: var(--Lime-green) !important;
+  background-image: url(../images/icon-exercise.svg) !important;
 }
 .category-4 {
-  background-color: var(--Violet);
-  background-image: url(../images/icon-social.svg);
+  background-color: var(--Violet) !important;
+  background-image: url(../images/icon-social.svg) !important;
 }
 .category-5 {
-  background-color: var(--Soft-orange);
+  background-color: var(--Soft-orange) !important;
+  background-image: url(../images/icon-self-care.svg) !important;
+}
+.category-6 {
   background-image: url(../images/icon-self-care.svg);
 }
