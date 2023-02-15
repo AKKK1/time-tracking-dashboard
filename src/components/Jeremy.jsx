@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import JrmImg from "../images/image-jeremy.png";
 import { createContext } from "react";
@@ -9,24 +9,43 @@ const Jeremy = () => {
 
   const day = () => {
     setTime(1);
+    setBtn1("100%");
+    setBtn2("50%");
+    setBtn3("50%");
   };
   const week = () => {
     setTime(2);
+    setBtn1("50%");
+    setBtn2("100%");
+    setBtn3("50%");
   };
   const month = () => {
     setTime(3);
+    setBtn1("50%");
+    setBtn2("50%");
+    setBtn3("100%");
   };
+
+  const [btn1, setBtn1] = useState("100%");
+  const [btn2, setBtn2] = useState("100%");
+  const [btn3, setBtn3] = useState("100%");
 
   return (
     <Lurji>
       <LurjiDiv>
         <Img src={JrmImg} />
         <LP>Report for </LP>
-        <LH1>JEREMY Robson</LH1>
+        <LH1>Jeremy Robson</LH1>
       </LurjiDiv>
-      <Btn1 onClick={day}>Daily</Btn1>
-      <Btn2 onClick={week}>Weekly</Btn2>
-      <Btn3 onClick={month}>Monthly</Btn3>
+      <Btn1 btn1={btn1} onClick={day}>
+        Daily
+      </Btn1>
+      <Btn2 btn2={btn2} onClick={week}>
+        Weekly
+      </Btn2>
+      <Btn3 btn3={btn3} onClick={month}>
+        Monthly
+      </Btn3>
     </Lurji>
   );
 };
@@ -60,7 +79,7 @@ const Btn3 = styled.button`
   margin-right: 30px;
   font-size: 20px;
   margin-bottom: 20px;
-  opacity: 60%;
+  opacity: ${(props) => props.btn3};
   font-weight: 400;
 
   &:hover {
@@ -72,7 +91,7 @@ const Btn2 = styled.button`
   margin-right: 40px;
   font-size: 20px;
   margin-bottom: 25px;
-  opacity: 60%;
+  opacity: ${(props) => props.btn2};
   font-weight: 400;
 
   &:hover {
@@ -84,7 +103,7 @@ const Btn1 = styled.button`
   margin-right: 150px;
   font-size: 20px;
   margin-bottom: 30px;
-  opacity: 60%;
+  opacity: ${(props) => props.btn1};
   font-weight: 400;
 
   &:hover {

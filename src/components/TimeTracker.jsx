@@ -142,17 +142,17 @@ const TimeTracker = () => {
 
                   {time === 1 && (
                     <WorkSubtitle>
-                      Last Week - {item.timeframes.daily.previous} {time}
+                      Last Week - {item.timeframes.daily.previous}
                     </WorkSubtitle>
                   )}
                   {time === 2 && (
                     <WorkSubtitle>
-                      Last Week - {item.timeframes.weekly.previous} {time}
+                      Last Week - {item.timeframes.weekly.previous}
                     </WorkSubtitle>
                   )}
                   {time === 3 && (
                     <WorkSubtitle>
-                      Last Week - {item.timeframes.monthly.previous} {time}
+                      Last Week - {item.timeframes.monthly.previous}
                     </WorkSubtitle>
                   )}
                 </WorkDiv>
@@ -177,6 +177,20 @@ const Grid = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
 
   gap: 20px;
+
+  @media (max-width: 375px) {
+    .time {
+      width: 100%;
+    }
+    .time li {
+      font-size: 1.1rem;
+    }
+    .tabs {
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+    }
+  }
 `;
 const Work = styled.div`
   width: 320px;
@@ -187,11 +201,6 @@ const Work = styled.div`
   background-repeat: no-repeat;
   background-position: top -5px right 15px;
 `;
-const Play = styled.div``;
-const Study = styled.div``;
-const Exercise = styled.div``;
-const Social = styled.div``;
-const SelfCare = styled.div``;
 
 const WorkDiv = styled.div`
   background-color: #1e244b;
