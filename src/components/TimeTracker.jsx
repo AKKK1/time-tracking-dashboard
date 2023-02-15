@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import styled, { css } from "styled-components";
 import WorkImg from "../images/icon-work.svg";
 import PlayImg from "../images/icon-play.svg";
@@ -9,7 +9,7 @@ import Self from "../images/icon-self-care.svg";
 import FormJSON from "../data.json";
 import "./styles.css";
 import Jeremy from "./Jeremy";
-
+import AppContext from "./AppContext";
 const TimeTracker = () => {
   const Data = FormJSON;
 
@@ -118,28 +118,50 @@ const TimeTracker = () => {
     },
   ]);
 
+  const [time, setTime] = useState(1);
+
   return (
-    <section>
-      <Mtavari>
-        <Jeremy />
-        <Grid>
-          {data?.map((item, index) => (
-            <Work key={item.title} className={`category-${index}`}>
-              <WorkDiv>
-                <WorkHeaderDiv>
-                  <WorkTitle>{item.title}</WorkTitle>
-                  <WorkBtn>...</WorkBtn>
-                </WorkHeaderDiv>
-                <WorkHours>{item.timeframes.monthly.current}Hrs</WorkHours>
-                <WorkSubtitle>
-                  Last Week - {item.timeframes.monthly.previous}
-                </WorkSubtitle>
-              </WorkDiv>
-            </Work>
-          ))}
-        </Grid>
-      </Mtavari>
-    </section>
+    <AppContext.Provider value={{ time, setTime }}>
+      <section>
+        <Mtavari>
+          <Jeremy />
+          <Grid>
+            {data?.map((item, index) => (
+              <Work key={item.title} className={`category-${index}`}>
+                <WorkDiv>
+                  <WorkHeaderDiv>
+                    <WorkTitle>{item.title}</WorkTitle>
+                    <WorkBtn>...</WorkBtn>
+                  </WorkHeaderDiv>
+
+                  <WorkHours>
+                    {time === 1 && item.timeframes.daily.current}
+                    {time === 2 && item.timeframes.weekly.current}
+                    {time === 3 && item.timeframes.monthly.current}Hrs
+                  </WorkHours>
+
+                  {time === 1 && (
+                    <WorkSubtitle>
+                      Last Week - {item.timeframes.daily.previous} {time}
+                    </WorkSubtitle>
+                  )}
+                  {time === 2 && (
+                    <WorkSubtitle>
+                      Last Week - {item.timeframes.weekly.previous} {time}
+                    </WorkSubtitle>
+                  )}
+                  {time === 3 && (
+                    <WorkSubtitle>
+                      Last Week - {item.timeframes.monthly.previous} {time}
+                    </WorkSubtitle>
+                  )}
+                </WorkDiv>
+              </Work>
+            ))}
+          </Grid>
+        </Mtavari>
+      </section>
+    </AppContext.Provider>
   );
 };
 

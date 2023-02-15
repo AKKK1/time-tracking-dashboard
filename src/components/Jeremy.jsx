@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import JrmImg from "../images/image-jeremy.png";
+import { createContext } from "react";
+import AppContext from "./AppContext";
+
 const Jeremy = () => {
+  const { setTime } = useContext(AppContext);
+
+  const day = () => {
+    setTime(1);
+  };
+  const week = () => {
+    setTime(2);
+  };
+  const month = () => {
+    setTime(3);
+  };
+
   return (
     <Lurji>
       <LurjiDiv>
         <Img src={JrmImg} />
-        <LP>Report for</LP>
+        <LP>Report for </LP>
         <LH1>JEREMY Robson</LH1>
       </LurjiDiv>
-      <Btn1>Daily</Btn1>
-      <Btn2>Weekly</Btn2>
-      <Btn3>Monthly</Btn3>
+      <Btn1 onClick={day}>Daily</Btn1>
+      <Btn2 onClick={week}>Weekly</Btn2>
+      <Btn3 onClick={month}>Monthly</Btn3>
     </Lurji>
   );
 };
